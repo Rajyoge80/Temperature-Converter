@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <div class="converter">
+            <label for="celsius">Celsius:</label>
+            <input type="number"id="celsius" placeholder="Enter Celsius">
+            <button onclick="convertFromCelsius()">Convert</button>
+            <label for="fahrenheit">Fahrenheit:</label>
+            <input type="number"id="fahrenheit" placeholder="Enter Fahrenheit">
+            <button onclick="convertFromFahrenheit()">Convert</button>
+            <label for="Kelvin">Kelvin:</label>
+            <input type="number"id="kelvin" placeholder="Enter Kelvin">
+            <button onclick="convertFromKelvin()">Convert</button>
+        </div>
+    </div>
+
+    <script>
+        function convertFromCelsius() {
+            const celsius = parseFloat(document.getElementById('celsius').value);
+            if (!isNaN(celsius)) {
+
+        document.getElementById('fahrenheit').value =((celsius * 9 /5) + 32).toFixed(2);
+
+        document.getElementById('kelvin').value =(celsius + 273.15).toFixed(2);
+            }
+        }
+
+        function convertFromFahrenheit()
+        {
+            const fahrenheit = parseFloat(document.getElementById('fahreheit').value);
+            if (!isNaN(fahrenheit)) {
+                
+                document.getElementById('celsius').value = ((fahrenheit - 32) * 5 / 9).toFixed(2);
+
+                document.getElementById('kelvin').value = (((fahrenheit - 32) * 5 / 9) + 273.15).toFixed(2);
+            }
+        }
+
+        function convertFromKelvin() {
+            const kelvin = parseFloat(document.getElementById('kelvin').value);
+            if (!isNaN(kelvin)) {
+                
+                document.getElementById('celsius').value = (kelvin - 273.15).toFixed(2);
+
+                document.getElementById('fahrenheit').value = (((kelvin - 273.15) * 9 / 5) + 32).toFixed(2);
+            }
+        }
+    </script>
+</body>
+</html>
